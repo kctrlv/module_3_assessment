@@ -6,13 +6,16 @@
 
 <div class="stores">
   <% @stores.first(15).each do |store| %>
-    <ul class="store">
-      <h4><%= store.longName %></h4>
-      <li>City: <%= store.city %></li>
-      <li>Distance: <%= store.distance %> miles </li>
-      <li>Phone: <%= store.phone %></li>
-      <li>Store Type: <%= store.storeType %> </li>
-    </ul>
+    <div class="single_store">
+      <ul class="store">
+        <h4><%= store.longName %></h4>
+        <li>City: <%= store.city %></li>
+        <li>Distance: <%= store.distance %> miles </li>
+        <li>Phone: <%= store.phone %></li>
+        <li>Store Type: <%= store.storeType %> </li>
+      </ul>
+
+    </div>
     <br>
   <% end %>
 </div>

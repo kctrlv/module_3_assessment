@@ -16,11 +16,14 @@ RSpec.feature 'Stores Lookup' do
     # And I should see a message that says "17 Total Stores"
     expect(page).to have_content("17 Total Stores")
     # And I should see exactly 15 results
-    within('.stores') do
-      expect(page).to have_selector('store', count: 15)
-    end
     # And I should see the long name, city, distance, phone number and store type for each of the 15 results
-    
+    within('.stores') do
+      expect(page).to have_content('Best Buy Mobile - Cherry Creek Shopping Center')
+      expect(page).to have_content('City: Denver')
+      expect(page).to have_content('Distance: 3.25 miles')
+      expect(page).to have_content('Phone: 303-270-9189')
+      expect(page).to have_content('Store Type: Mobile')
+    end
 
     # The name will be a link in the next story:
     #
