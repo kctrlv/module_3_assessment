@@ -13,6 +13,17 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def create
-    
+    item = Item.new(item_params)
+    if item.save
+      render json: Item.find(item.id), status: 201
+    else
+      render json: {}, status: 404
+    end
+  end
+
+  private
+
+  def item_params
+    params.require(:params).permit(:name, :description, :image_url)
   end
 end
