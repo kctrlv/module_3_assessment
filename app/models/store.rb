@@ -11,8 +11,9 @@ class Store
     res = conn.get "/v1/stores(area(#{zipcode},25))", parameters
     # "https://api.bestbuy.com/v1/stores(area(80202,25))?format=json&show=storeId,storeType,name&pageSize=50&apiKey=#{ENV['api_key']}"
     # require "pry"; binding.pry
-    results = JSON.parse(res.body)['stores']
-    results.map { |store| Store.new(store) }
+    results = JSON.parse(res.body)
+    stores = results['stores']
+    stores.map { |store| Store.new(store) }
   end
 
   def initialize(params)
