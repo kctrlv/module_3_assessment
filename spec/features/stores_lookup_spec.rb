@@ -20,8 +20,8 @@ RSpec.feature 'Stores Lookup' do
       expect(page).to have_selector('store', count: 15)
     end
     # And I should see the long name, city, distance, phone number and store type for each of the 15 results
-    #
     
+
     # The name will be a link in the next story:
     #
     # As a user
