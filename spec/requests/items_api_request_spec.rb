@@ -1,14 +1,16 @@
 require 'rails_helper'
 
-describe 'Items API' do
+describe 'Items API', :type => :request do
   it 'gets all items' do
     # When I send a GET request to `/api/v1/items`
-    get '/api/v1/items'
+    get "/api/v1/items"
     # I receive a 200 JSON response containing all items
     expect(response.status).to eq(200)
     res = JSON.parse(response.body, symbolize_names: true)
     expect(res.class).to eq(Array)
     # And each item has an id, name, description, and image_url but not the created_at or updated_at
+    require "pry"; binding.pry
+    expect(res.first[:id])
   end
 
 #   When I send a GET request to `/api/v1/items`
