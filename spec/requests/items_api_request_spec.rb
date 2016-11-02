@@ -6,13 +6,13 @@ describe 'Items API', :type => :request do
     get "/api/v1/items"
     # I receive a 200 JSON response containing all items
     expect(response.status).to eq(200)
-    res = JSON.parse(response.body, symbolize_names: true)
+    res = JSON.parse(response.body)
     expect(res.class).to eq(Array)
     # And each item has an id, name, description, and image_url but not the created_at or updated_at
     require "pry"; binding.pry
     expect(res.first[:id])
   end
-
+  
 #   When I send a GET request to `/api/v1/items`
 # I receive a 200 JSON response containing all items
 # And each item has an id, name, description, and image_url but not the created_at or updated_at
