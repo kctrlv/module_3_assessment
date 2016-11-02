@@ -21,4 +21,10 @@
       </li>
     </ul>
   </div>
+  <%= form_tag :search, method: :get, class: "form-inline" do %>
+    <div class="form-group search-field">
+      <%= text_field_tag :s, "Search by zipcode" %>
+      <%= submit_tag "Search" %>
+    </div>
+  <% end %>
 </nav>

@@ -4,7 +4,11 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def show
-    render json: Item.find(params[:id])
+    if Item.find_by(id: params[:id])
+      render json: Item.find(params[:id])
+    else
+      render json: {}
+    end
   end
 
   def destroy
