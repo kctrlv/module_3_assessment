@@ -60,6 +60,4 @@ describe 'Items API', :type => :request do
     expect(!!res[:created_at]).to eq(false)
     expect(!!res[:updated_at]).to eq(false)
   end
-
-
 end
